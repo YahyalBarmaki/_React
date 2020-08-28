@@ -1,38 +1,88 @@
-.App {
+.App{
+  padding: auto 15px 15px;
+  margin: auto;
+
+}
+h1{
+  color: rgb(79, 138, 216);
   text-align: center;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table{
+  width:70%; 
+  margin-left:15%; 
+  margin-right:15%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+th, td{
+  border: 1px solid black;
+  padding: 10px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.td1{
+  text-align: center;
+  table-layout: fixed;
+  font-weight:bold ;
+  text-transform: uppercase;
+}
+.btn{
+  background-color: #1837e7; /* Green */
+  border: none;
   color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  transition-duration: 0.4s;
+  display: block;
+  cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  background-color: #00fff1; /* Green */
+  color: white;
+  cursor: pointer;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/********************Formulaire******************************/
+form {
+  background-color:#f5f3f3;
+  margin-bottom: 100px;
+  width:70%; 
+  margin-left:15%; 
+  margin-right:15%;
   }
-  to {
-    transform: rotate(360deg);
-  }
+fieldset {
+    padding:0 20px 20px 20px;
+    margin-bottom:10px;
+    border:1px solid #f6f8f8;
+    } 
+label {
+      margin-top:10px;
+      display:block;
+      } 
+input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid rgb(116, 161, 187);
+        border-radius: 4px;
+      }
+.addBtn{
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+}
+.addBtn:hover{
+  background-color: #153ceb;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
 }
