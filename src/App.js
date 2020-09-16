@@ -1,36 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Client from './components/Clients';
 import Form from './components/Form'
 
 import './App.css';
 
-class App extends React.Component {
-
-  state = {
-    clients : [
+const App = () => {
+  const [clients, SetNewClients] = useState([
       {id:1, nom:'LEE'},
       {id:2, nom:'FALL'},
-      {id:3, nom:'GUEYE'},
-    ]
+      {id:3, nom:'GUEYE'}
+  ])
+  
+ const handleAdd = client => {
+    const upclients = [...clients];
+    upclients.push(client)
+    SetNewClients(upclients)
   }
- 
-  handleAdd = client => {
-    const clients = [...this.state.clients];
-    clients.push(client)
-    this.setState({
-      clients,
-    })
-  }
-  handleDelete = (id) => {
-    const cl = [...this.state.clients];
-    const index = cl.findIndex((client)=>client.id === id)
-    cl.splice(index,1)
-    this.setState({
-      clients:cl,
-    })
+ const handleDelete = (id) => {
+    const upcl = [...clients];
+    const index = upcl.findIndex((client)=>client.id === id)
+    upcl.splice(index,1)
+    SetNewClients(upcl)
 
   }
-render(){
+
     const title = "Liste des clients"
       return(
         <div className="App">
@@ -41,13 +34,13 @@ render(){
             <td className="td1">NomComplet</td>
             <td className="td1">Action</td>
          </tr>
-          {this.state.clients.map(client => (
-            <Client details={client} onDelete={this.handleDelete}/>
+          {clients.map(client => (
+            <Client details={client} onDelete={handleDelete}/>
             ))}</table>
-          <Form onClientAdd={this.handleAdd}/>
+          <Form onClientAdd={handleAdd}/>
         </div>
       );
     }
-}
+
 
 export default App;

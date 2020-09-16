@@ -1,36 +1,32 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import '../App.css';
-export default class Form extends Component {
-    state = {
-        newClient:""
-    }
+
+ const Form = (props) => {
+   const [newClient,setNewClient] = useState("")
    
-      handleChange = (event) => {
-        this.setState({
-          newClient : event.currentTarget.value
-        })
+      const handleChange = (event) => {
+        setNewClient(event.currentTarget.value)
       }
-      handleSubmit = (event) => {
+      const handleSubmit = (event) => {
         event.preventDefault()
         const id = new Date().getTime();
-        const nom = this.state.newClient;
+        const nom = newClient;
         //const client = {id,nom};
-       this.props.onClientAdd({id,nom})
-       this.setState({
-        newClient:""
-       })
+       props.onClientAdd({id,nom})
+       setNewClient({newClient:""})
      }
-    render() {
+    
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                   <fieldset>
-                   <label for="email">Ajouter un nom :</label>
-                     <input value={this.state.newClient} onChange={this.handleChange} type="text" placeholder="nom"/> 
+                   <label for="nom">Ajouter un nom :</label>
+                     <input value={newClient} onChange={handleChange} type="text" placeholder="nom"/> 
                      <button className="addBtn">Ajouter</button>
                   </fieldset>
                 </form>
             </div>
         )
     }
-}
+
+export default Form
